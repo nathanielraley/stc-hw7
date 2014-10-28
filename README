@@ -1,0 +1,43 @@
+#############################################################
+Readme file for HW7 (non-linear)
+Nathaniel Raley
+
+The following submission contains three source code files written in C 
+and a single makefile which compiles each program. To build the 
+executables, simply type 'make' or 'make all'. To just build the secant 
+method executable, which calculates the square root of 31, type 'make 
+secant'. To just build the newton's method executable, which calculates 
+the square root of 31, type 'make newton1'. To calculate the newton's 
+method executable which calculates the root of x/(1+x*x),type 'make 
+newton2'. The executables that are generated will be named 
+'secant','newton1', and 'newton2' respectively. 
+
+Each program takes command line input parameters; the secant program 
+should be run with the following options: (1) first guess, (2) second 
+guess, (3) threshold for stopping, (4) and the maximum number of 
+iterations to run, particularly important if convergence is not 
+possible. For example, run it like ./secant 0 1 .001 20
+
+For newton1 and newton2, since derivatives at a single point 
+are used at each step, only a single initial guess is required. For 
+these two programs, there are only 3 command line arguments: (1) first 
+guess, (2) stopping threshold, and (3) maximum number of interations. 
+You should run these like ./newton1 .5 .001 20
+
+Be careful when you run newton2. A graph of this function illustrates 
+that, if x is less than -.5, the derivative of the function is always 
+negative; as x goes from -.5 to -inf, y goes to 0 from the negative 
+side. Thus, a line with a slope equal to the derivative of the function 
+x/(1+x^2) will cross the x-axis at ever-decreasing values of x, and will 
+therefore never converge. It does not happen at the inflection point; it 
+happens at +/- 0.5 because the slope of the line tangent at that point 
+intersects the x-axis on the other side of the y-axis beyond x= -/+ 0.5; 
+thus, this continues to diverge; the slope of the tangent line becomes 
+smaller and smaller, pushing the x-intercepts further and further away 
+from zero in either the positive or negative direction. To make a long 
+story short, newton2 will fail to converge for initial values larger 
+than 0.5 in magnitude, which results in slopes greater in magnitude than 
+0.48 (.75/(1.25^2)). 
+
+If there are any questions about these programs, please contact the 
+creator, Nathaniel Raley, at nathaniel.raley@utexas.edu. Thank you.
